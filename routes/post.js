@@ -26,6 +26,20 @@ router.get('/post/:id', async (ctx) => {
     }
     await ctx.render('post', { post: post })
 })
-
+// 编辑页
+router.get('/update/:id', async (ctx) => {
+    const id = ctx.params.id
+    const post = postService.show(id)
+    if (!post) {
+        ctx.throw(404, "文章不存在")
+    }
+    await ctx.render('update', { post })
+})
+router.post('/update/:id', async (ctx) => {
+    const id = ctx.params.id
+    const post = ctx.request.body
+    postService.update(id, post.title, post.content)
+    ctx.redirect('/', '修改成功！')
+})
 
 module.exports = router

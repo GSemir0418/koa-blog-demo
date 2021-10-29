@@ -25,3 +25,13 @@ exports.publish = (title, content) => {
 exports.show = (id) => {
     return posts.find(i => i.id == id)
 }
+// 修改文章
+exports.update = (id, title, content) => {
+    posts.forEach(i => {
+        if (i.id == id) {
+            i.title = title
+            i.content = content
+            i.time = (new Date()).toLocaleString()
+        }
+    })
+}
