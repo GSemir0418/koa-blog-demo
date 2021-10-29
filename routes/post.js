@@ -14,9 +14,17 @@ router.post('/publish', async (ctx) => {
         ctx.throw(400, '您的请求有误')
     }
     postService.publish(data.title, data.content)
-    // ctx.redirect(`/post/${item.id}`)
     ctx.redirect('/', '发布成功！')
 
+})
+// 详情页
+router.get('/post/:id', async (ctx) => {
+    const id = ctx.params.id
+    const post = postService.show(id)
+    if (!post) {
+        ctx.throw(404, '文章不存在')
+    }
+    await ctx.render('post', { post: post })
 })
 
 

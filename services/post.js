@@ -21,3 +21,7 @@ exports.publish = (title, content) => {
         time: (new Date()).toLocaleString()
     })
 }
+// 文章详情
+exports.show = (id) => {
+    return posts.find(i => i.id == id)
+}
