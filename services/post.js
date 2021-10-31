@@ -35,3 +35,9 @@ exports.update = (id, title, content) => {
         }
     })
 }
+// 删除文章
+exports.delete = (id) => {
+    id = Number(id)
+    console.log(posts.filter(i => i.id !== id))
+    posts = posts.filter(i => i.id !== id)
+}

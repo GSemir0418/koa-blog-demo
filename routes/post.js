@@ -41,5 +41,11 @@ router.post('/update/:id', async (ctx) => {
     postService.update(id, post.title, post.content)
     ctx.redirect('/', '修改成功！')
 })
+// 删除
+router.get('/delete/:id', async (ctx) => {
+    const id = ctx.params.id
+    postService.delete(id)
+    ctx.redirect('/', '删除成功！')
+})
 
 module.exports = router
