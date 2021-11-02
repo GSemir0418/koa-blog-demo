@@ -7,4 +7,5 @@ exports.login = (username, password) => {
         return false
     }
     return user[username] === password
+    // 返回boolean
 }

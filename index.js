@@ -11,7 +11,7 @@ const postRoute = require('./routes/post')
 const app = new koa()
 app.keys = ['gsgaggeojJHau']
 // 使用中间件
-app.use(bodyParser())
+app.use(bodyParser())// 获取并解析请求体的中间件
 app.use(authenticate)
 render(app, {
     root: './templates',
