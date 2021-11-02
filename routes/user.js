@@ -26,7 +26,7 @@ router.post('/login', async (ctx) => {
 
 router.get('/logout', (ctx) => {
     ctx.cookies.set('logged', 0, {
-        maxAge: 0,
+        maxAge: 0, // 0或-1都可以清除cookie
         signed: true
     })
     ctx.redirect('/', '退出登录成功')
